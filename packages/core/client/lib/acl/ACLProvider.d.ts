@@ -1,0 +1,13 @@
+import React from 'react';
+export declare const ACLContext: React.Context<any>;
+export declare const ACLProvider: (props: any) => JSX.Element;
+export declare const ACLRolesCheckProvider: (props: any) => JSX.Element;
+export declare const useRoleRecheck: () => () => void;
+export declare const useACLContext: () => any;
+export declare const useACLRoleContext: () => any;
+export declare const ACLAllowConfigure: (props: any) => JSX.Element;
+export declare const ACLCollectionProvider: (props: any) => JSX.Element;
+export declare const ACLActionProvider: (props: any) => JSX.Element;
+export declare const ACLCollectionFieldProvider: (props: any) => JSX.Element;
+export declare const ACLMenuItemProvider: (props: any) => JSX.Element;
+export default ACLProvider;

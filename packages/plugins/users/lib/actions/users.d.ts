@@ -1,0 +1,11 @@
+import { Context, Next } from '@znewbee/actions';
+export declare function check(ctx: Context, next: Next): Promise<void>;
+export declare function signin(ctx: Context, next: Next): Promise<void>;
+export declare function signout(ctx: Context, next: Next): Promise<void>;
+export declare function signup(ctx: Context, next: Next): Promise<void>;
+export declare function lostpassword(ctx: Context, next: Next): Promise<void>;
+export declare function resetpassword(ctx: Context, next: Next): Promise<void>;
+export declare function getUserByResetToken(ctx: Context, next: Next): Promise<void>;
+export declare function updateProfile(ctx: Context, next: Next): Promise<void>;
+export declare function changePassword(ctx: Context, next: Next): Promise<void>;
+export declare function setDefaultRole(ctx: Context, next: Next): Promise<void>;

@@ -1,0 +1,20 @@
+import React from 'react';
+import { useCollection } from '../../../collection-manager';
+import { GeneralSchemaDesigner, SchemaSettings } from '../../../schema-settings';
+export var FormDesigner = function FormDesigner() {
+  var _useCollection = useCollection(),
+      name = _useCollection.name,
+      title = _useCollection.title;
+
+  return /*#__PURE__*/React.createElement(GeneralSchemaDesigner, {
+    title: title || name
+  }, /*#__PURE__*/React.createElement(SchemaSettings.Template, {
+    componentName: 'Form',
+    collectionName: name
+  }), /*#__PURE__*/React.createElement(SchemaSettings.Divider, null), /*#__PURE__*/React.createElement(SchemaSettings.Remove, {
+    removeParentsIfNoChildren: true,
+    breakRemoveOn: {
+      'x-component': 'Grid'
+    }
+  }));
+};

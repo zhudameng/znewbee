@@ -1,0 +1,65 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function _path() {
+  const data = _interopRequireDefault(require("path"));
+
+  _path = function _path() {
+    return data;
+  };
+
+  return data;
+}
+
+var _hooks = require("./hooks");
+
+function _server() {
+  const data = require("@znewbee/server");
+
+  _server = function _server() {
+    return data;
+  };
+
+  return data;
+}
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+class PluginActionLogs extends _server().Plugin {
+  beforeLoad() {
+    var _this = this;
+
+    return _asyncToGenerator(function* () {
+      _this.db.on('afterCreate', _hooks.afterCreate);
+
+      _this.db.on('afterUpdate', _hooks.afterUpdate);
+
+      _this.db.on('afterDestroy', _hooks.afterDestroy);
+    })();
+  }
+
+  load() {
+    var _this2 = this;
+
+    return _asyncToGenerator(function* () {
+      yield _this2.db.import({
+        directory: _path().default.resolve(__dirname, 'collections')
+      });
+    })();
+  }
+
+  getName() {
+    return this.getPackageName(__dirname);
+  }
+
+}
+
+exports.default = PluginActionLogs;
